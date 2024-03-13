@@ -3,101 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viaggio</title>
+    <title>Esplora Nord America - LIFE TIME ROUTE</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
         }
 
         .navbar {
-            background-color: #333;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-            font-size: 1.5rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
+            background-color: #141414;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .company-name {
-            font-size: 2rem;
+            color: white;
+            font-size: 24px;
             font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .main-content {
-            margin-top: 80px; /* Altezza della navbar */
-            text-align: center;
-            padding: 20px;
-            background-size: cover;
-            background-position: center;
-            transition: background-image 0.5s ease;
+            letter-spacing: 1px;
         }
 
         .button {
-            padding: 12px 24px;
-            margin: 10px;
-            background-color: #4CAF50;
-            border: none;
-            cursor: pointer;
-            border-radius: 25px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease;
+            background-color: #0070c9;
             color: white;
-            border: 2px solid #4CAF50;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
+
         .button:hover {
-            background-color: #45a049;
+            background-color: #005aa7;
+        }
+
+        .main-content {
+            padding: 20px;
+            text-align: justify;
+            background-image: url('background.jpg'); /* Inserisci l'URL dello sfondo qui */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
         .overlay {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.7); /* Overlay trasparente */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s, visibility 0.5s;
+            padding: 20px;
         }
 
         .overlay-text {
-            color: white;
-            font-size: 2rem;
+            background-color: transparent;
+            border: none;
+            color: #333;
+            font-size: 24px;
             font-weight: bold;
-            text-transform: uppercase;
+            text-align: center;
         }
 
-        .show-overlay {
-            opacity: 1;
-            visibility: visible;
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
-        .background-canada {
-            background-image: url('canada.jpg');
+        .section-title {
+            margin-bottom: 20px;
+            color: #0070c9;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .background-america {
-            background-image: url('america.jpg');
+        .section-content p {
+            margin-bottom: 10px;
         }
 
-        .background-map {
-            background-image: url('map.jpg');
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #0070c9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #005aa7;
         }
     </style>
 </head>
@@ -105,52 +152,68 @@
     <div class="navbar">
         <div class="company-name">LIFE TIME ROUTE</div>
         <div class="actions">
-            <button class="button" onclick="changeBackground('canada')">Prenota Canada</button>
-            <button class="button" onclick="changeBackground('america')">Prenota America</button>
-            <button class="button" onclick="changeBackground('map')">Visualizza Mappa</button>
+            <button class="button" onclick="showBookingForm()">Prenota</button>
         </div>
     </div>
 
-    <div class="overlay" id="overlay">
-        <div class="overlay-text" id="overlay-text"></div>
+    <div class="main-content">
+        <div class="overlay">
+            <div class="overlay-text">
+                <h2>Esplora il Nord America</h2>
+                <p>Un'avventura attraverso New York, Toronto, Ottawa, Edmonton, Los Angeles, San Francisco, Portland e Seattle.</p>
+                <p>Siete pronti a partire per un'avventura senza pari attraverso il Nord America? Allacciate le cinture di sicurezza e preparatevi per un viaggio che vi lascerà senza fiato!</p>
+            </div>
+        </div>
     </div>
 
-    <div class="main-content" id="main-content">
-        <h1 id="main-title">Benvenuti al nostro viaggio</h1>
-        <p>Esplora le bellezze naturali del Canada e dell'America.</p>
-        <p>Prenota il tuo viaggio oggi stesso!</p>
+    <div class="overlay" id="booking-overlay">
+        <div class="form-container">
+            <form id="booking-form" onsubmit="submitBookingForm(event)">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefono:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Messaggio:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Invia</button>
+            </form>
+        </div>
     </div>
 
     <script>
-        function changeBackground(location) {
-            var mainContent = document.getElementById('main-content');
-            var overlay = document.getElementById('overlay');
-            var overlayText = document.getElementById('overlay-text');
-            var mainTitle = document.getElementById('main-title');
-            switch(location) {
-                case 'canada':
-                    mainContent.classList.add('background-canada');
-                    overlayText.textContent = 'Prenota il tuo viaggio in Canada';
-                    break;
-                case 'america':
-                    mainContent.classList.add('background-america');
-                    overlayText.textContent = 'Prenota il tuo viaggio in America';
-                    break;
-                case 'map':
-                    mainContent.classList.add('background-map');
-                    overlayText.textContent = 'Visualizza la mappa';
-                    break;
-            }
-            overlay.classList.add('show-overlay');
-            mainTitle.style.opacity = 0;
+        function showBookingForm() {
+            document.getElementById('booking-overlay').style.display = 'flex';
+        }
+
+        function submitBookingForm(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var message = document.getElementById('message').value;
+
+            console.log('Nome:', name);
+            console.log('Email:', email);
+            console.log('Telefono:', phone);
+            console.log('Messaggio:', message);
+
+            document.getElementById('booking-form').reset();
+
             setTimeout(function() {
-                mainTitle.style.display = 'none';
-                mainTitle.style.opacity = 1;
-            }, 500);
-            setTimeout(function() {
-                overlay.classList.remove('show-overlay');
+                window.location.href = 'https://docs.google.com/spreadsheets/d/1kAHN5afQ1BGnDc_m6vIo-2mgKH5aCsWivJunajaSRKs/edit?usp=sharing';
             }, 2000);
         }
     </script>
 </body>
 </html>
+
