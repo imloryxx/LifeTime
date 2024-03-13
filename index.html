@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viaggio</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        height: 100%;
+    }
+    .container {
+        position: relative;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+    }
+    .navigation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .button {
+        padding: 10px;
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="overlay"></div>
+    <div class="navigation">
+        <button class="button" onclick="changeBackground('canada')">Canada</button>
+        <button class="button" onclick="changeBackground('america')">America</button>
+        <button class="button" onclick="changeBackground('map')">Mappa</button>
+    </div>
+    <div class="content">
+        <h1>Benvenuti al nostro viaggio</h1>
+    </div>
+</div>
+
+<script>
+    function changeBackground(location) {
+        const container = document.getElementById('container');
+        switch(location) {
+            case 'canada':
+                container.style.backgroundImage = "url('link_all'immagine_del_Canada')";
+                break;
+            case 'america':
+                container.style.backgroundImage = "url('link_all'immagine_dell_America')";
+                break;
+            case 'map':
+                container.style.backgroundImage = "url('link_all'immagine_della_mappa')";
+                break;
+            default:
+                container.style.backgroundImage = "url('link_all'immagine_di_default')";
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>
