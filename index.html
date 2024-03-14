@@ -1,219 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esplora Nord America - LIFE TIME ROUTE</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'SF Pro Text', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
-        }
-
-        .navbar {
-            background-color: #141414;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .company-name {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .button {
-            background-color: #0070c9;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #005aa7;
-        }
-
-        .main-content {
-            padding: 20px;
-            text-align: justify;
-            background-image: url('background.jpg'); /* Inserisci l'URL dello sfondo qui */
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.7); /* Overlay trasparente */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .overlay-text {
-            background-color: transparent;
-            border: none;
-            color: #333;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .section {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px;
-            max-width: 600px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .section-title {
-            margin-bottom: 20px;
-            color: #0070c9;
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .section-content p {
-            margin-bottom: 10px;
-        }
-
-        .form-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            color: #333;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        button[type="submit"] {
-            background-color: #0070c9;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #005aa7;
-        }
-    </style>
+    <title>Esplora Nord America</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="navbar">
-        <div class="company-name">LIFE TIME ROUTE</div>
-        <div class="actions">
-            <button class="button" onclick="showBookingForm()">Prenota</button>
-        </div>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Esplora Nord America</h1>
+        <p>
+            Benvenuti a bordo di un viaggio epico attraverso alcune delle città più iconiche del Nord America. Iniziamo la nostra avventura nella città che non dorme mai, New York. Con il suo skyline mozzafiato, la sua frenetica energia e la sua ricca diversità
+            culturale, New York è un melting pot di esperienze uniche e indimenticabili.
+        </p>
+        <!-- Aggiungi altre sezioni qui -->
+        <button id="discoverBtn">Scopri di più</button>
+        <button id="bookBtn">Prenota</button>
     </div>
-
-    <div class="main-content">
-        <div class="overlay">
-            <div class="overlay-text">
-                <h2>Esplora il Nord America</h2>
-                <p>Un'avventura attraverso New York, Toronto, Ottawa, Edmonton, Los Angeles, San Francisco, Portland e Seattle.</p>
-                <p>Siete pronti a partire per un'avventura senza pari attraverso il Nord America? Allacciate le cinture di sicurezza e preparatevi per un viaggio che vi lascerà senza fiato!</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="overlay" id="booking-overlay">
-        <div class="form-container">
-            <form id="booking-form" onsubmit="submitBookingForm(event)">
-                <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Telefono:</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Messaggio:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit">Invia</button>
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <h2>Prenotazione</h2>
+            <form id="bookingForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required><br>
+                <button type="submit">Prenota ora</button>
+                <button type="button" id="cancelBtn">Annulla</button>
             </form>
         </div>
     </div>
-
-    <script>
-        function showBookingForm() {
-            document.getElementById('booking-overlay').style.display = 'flex';
-        }
-
-        function submitBookingForm(event) {
-            event.preventDefault();
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var phone = document.getElementById('phone').value;
-            var message = document.getElementById('message').value;
-
-            console.log('Nome:', name);
-            console.log('Email:', email);
-            console.log('Telefono:', phone);
-            console.log('Messaggio:', message);
-
-            document.getElementById('booking-form').reset();
-
-            setTimeout(function() {
-                window.location.href = 'https://docs.google.com/spreadsheets/d/1kAHN5afQ1BGnDc_m6vIo-2mgKH5aCsWivJunajaSRKs/edit?usp=sharing';
-            }, 2000);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
-</html>
 
+</html>
