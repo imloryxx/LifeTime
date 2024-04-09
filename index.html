@@ -6,12 +6,34 @@
     <title>Esplora Nord America</title>
     <style>
         /* Stili CSS per il design del sito */
-        body {
+        body{
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: black; /* Imposta lo sfondo nero */
             color: white; /* Testo bianco per contrasto */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative; /* Aggiunto per posizionare il testo "LIFE TIME ROUTE" */
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .branding {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Arial', sans-serif; /* Sostituisci con il font desiderato */
+            font-size: 24px;
+            color: white;
         }
         .container {
             max-width: 1200px;
@@ -146,14 +168,14 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://tse2.mm.bing.net/th/id/OIG2.75_C24FEYTP77iFpxphc?pid=ImgGn" alt="Logo" class="logo">
+            <a href="#" onclick="window.location.href = 'pagina_di_reindirizzamento.html'"><img src="https://tse2.mm.bing.net/th/id/OIG2.75_C24FEYTP77iFpxphc?pid=ImgGn" alt="Logo" class="logo"></a>
             <h1 style="text-align: center;">Esplora Nord America</h1>
             <div class="menu">
                 <a href="#" onclick="toggleAbout()">Scopri di più</a> <!-- Cambio del testo -->
                 <a href="#" onclick="toggleBooking()">Prenota</a> <!-- Aggiunto onclick per mostrare/nascondere il modulo -->
             </div>
         </div>
-        <div class="main-image" style="background-image: url('https://tse2.mm.bing.net/th/id/OIG2.75_C24FEYTP77iFpxphc?pid=ImgGn');">
+        <div class="main-image" style="background-image: url('');">
             <h1 style="text-align: center;">Benvenuti a bordo di un viaggio epico attraverso alcune delle città più iconiche del Nord America</h1>
         </div>
         <div class="overlay">
@@ -172,25 +194,26 @@
         <!-- Sezione "About" modificata -->
         <div class="about" id="about">
             <h2 style="text-align: center;">About</h2>
-            <p style="text-align: center;">**New York:**<br>
+            <p style="text-align: center;">New York:<br>
             Esplora le strade animate di Manhattan, dove ogni angolo nasconde una storia da raccontare. Ammira l'architettura epica dell'Empire State Building, passeggia per i sentieri di Central Park e immergiti nell'arte al Metropolitan Museum of Art. Per un assaggio della vita notturna, dirigiti verso i quartieri di Greenwich Village o Brooklyn, dove la musica e la creatività riempiono l'aria.<br><br>
 
             Da qui, attraverseremo il confine verso il Canada, facendo tappa a Toronto, la vivace metropoli multiculturale.<br><br>
 
-            **Toronto:**<br>
+            Toronto:<br>
             Scopri la vibrante metropoli di Toronto, dove la modernità si fonde con la storia. Ammira la maestosa CN Tower, esplora i quartieri multietnici come Kensington Market e Little Italy, e perdi te stesso tra i capolavori artistici al Royal Ontario Museum. Assapora la cucina globale e fai una passeggiata lungo il lungomare di Harbourfront, dove potrai goderti una vista spettacolare sul lago Ontario.<br><br>
 
             Proseguendo il nostro viaggio, faremo tappa nella maestosa capitale del Canada, Ottawa.<br><br>
 
-            **Ottawa:**<br>
+            Ottawa:<br>
             Immergiti nella bellezza architettonica di Ottawa, con il suo impressionante Parlamento e i suoi magnifici giardini. Esplora le collezioni di arte e storia al National Gallery of Canada, passeggiando lungo il canale Rideau o ammirando la vista panoramica dalla collina del Parlamento. Con la sua atmosfera elegante e il mix di cultura francese e inglese, Ottawa cattura il cuore di chiunque la visiti.<br><br>
 
             Successivamente, faremo tappa a Edmonton, una città in crescita nel cuore dell'Alberta.<br><br>
 
-            **Edmonton:**<br>
+            Edmonton:<br>
             Esplora la vivace scena culturale di Edmonton, dalle sue gallerie d'arte ai suoi teatri. Ammira la bellezza naturale del fiume North Saskatchewan mentre ti immergi nella tranquillità di uno dei suoi parchi cittadini. Con una scena culinaria in crescita e una comunità artistica vibrante, Edmonton è pronta a stupirti con la sua accoglienza calorosa e la sua atmosfera dinamica.<br><br>
 
-            Da Edmonton, continueremo il nostro viaggio attraverso Los Angeles, San Francisco, Portland e Seattle, scoprendo la bellezza, la diversità e l'energia unica di ognuna di queste città. Sia</p>
+            Da Edmonton, continueremo il nostro viaggio attraverso Los Angeles, San Francisco, Portland e Seattle, scoprendo la bellezza, la diversità e l'energia unica di ognuna di queste città.<br><br>
+             Siete pronti per questa avventura?</p>
         </div>
         <div class="contact-form" id="bookingForm">
             <span class="close-button" onclick="toggleBooking()">X</span> <!-- Aggiunto il pulsante "X" per chiudere il modulo -->
@@ -199,7 +222,7 @@
                 <input type="text" name="name" placeholder="Nome" required><br>
                 <input type="email" name="email" placeholder="Email" required><br>
                 <input type="text" name="phone" placeholder="Telefono" required><br>
-                <textarea name="message" placeholder="Messaggio" required></textarea><br>
+                <textarea name="message" placeholder="Messaggio" ></textarea><br>
                 <input type="submit" value="Invia">
                 <input type="reset" value="Annulla">
             </form>
@@ -237,10 +260,11 @@
             var form = document.querySelector('.contact-form form');
             // Esegui la validazione del modulo
             if (form.checkValidity()) {
-                // Se il modulo è valido, mostra un messaggio di conferma
+                // Se il modulo è valido, mostra un messaggio di conferma e reindirizza
                 alert("Modulo inviato con successo!");
                 form.reset(); // Resetta il modulo
                 toggleBooking(); // Chiudi il modulo di prenotazione
+                window.location.href = 'https://docs.google.com/spreadsheets/d/1kAHN5afQ1BGnDc_m6vIo-2mgKH5aCsWivJunajaSRKs/edit?usp=sharing'; // Reindirizza l'utente
             }
         }
     </script>
