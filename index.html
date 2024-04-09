@@ -1,272 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esplora Nord America</title>
-    <style>
-        /* Stili CSS per il design del sito */
-        body{
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: black; /* Imposta lo sfondo nero */
-            color: white; /* Testo bianco per contrasto */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative; /* Aggiunto per posizionare il testo "LIFE TIME ROUTE" */
-        }
-        .header {
-            text-align: center;
-            padding: 20px 0;
-        }
-        .logo {
-            max-width: 200px;
-            margin-bottom: 20px;
-        }
-        .branding {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-family: 'Arial', sans-serif; /* Sostituisci con il font desiderato */
-            font-size: 24px;
-            color: white;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            text-align: center;
-            padding: 20px 0;
-        }
-        .logo {
-            max-width: 200px;
-            margin-bottom: 20px;
-        }
-        .main-image {
-            background-size: cover;
-            background-position: center;
-            height: 500px;
-            position: relative;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-        .modal {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-        }
-        .btn {
-            background-color: blue;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px; /* Aggiunge spazio sopra i pulsanti */
-        }
-        .btn:hover {
-            background-color: darkblue;
-        }
-        .menu {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .menu a:hover {
-            background-color: darkblue;
-        }
-        .about {
-            display: none; /* Nascondi la sezione "About" all'inizio */
-            margin-top: 20px;
-        }
-        .about.show {
-            display: block; /* Mostra la sezione "About" quando richiesto */
-        }
-        .contact-form {
-            display: none; /* Nascondi il modulo di prenotazione all'inizio */
-            position: fixed; /* Imposta la posizione fissa */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8); /* Sfondo trasparente */
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 100; /* Imposta la posizione sopra gli altri elementi */
-            width: 300px;
-        }
-        .contact-form.show {
-            display: block; /* Mostra il modulo di prenotazione quando richiesto */
-        }
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 10px 0;
-            border: none;
-            border-radius: 5px;
-            background-color: #f2f2f2;
-        }
-        .contact-form input[type="submit"],
-        .contact-form input[type="reset"] {
-            width: 100%;
-            background-color: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 0;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-        .contact-form input[type="submit"]:hover,
-        .contact-form input[type="reset"]:hover {
-            background-color: darkblue;
-        }
-        /* Stile per il pulsante "X" per chiudere il modulo */
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            cursor: pointer;
-            font-size: 20px;
-        }
-    </style>
+    <title>ViaggiFacili - Prenota il tuo viaggio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="#" onclick="window.location.href = 'pagina_di_reindirizzamento.html'"><img src="https://tse2.mm.bing.net/th/id/OIG2.75_C24FEYTP77iFpxphc?pid=ImgGn" alt="Logo" class="logo"></a>
-            <h1 style="text-align: center;">Esplora Nord America</h1>
-            <div class="menu">
-                <a href="#" onclick="toggleAbout()">Scopri di più</a> <!-- Cambio del testo -->
-                <a href="#" onclick="toggleBooking()">Prenota</a> <!-- Aggiunto onclick per mostrare/nascondere il modulo -->
-            </div>
+    <header>
+        <h1>Benvenuti a ViaggiFacili</h1>
+        <nav>
+            <ul>
+                <li><a href="#destinazioni">Destinazioni</a></li>
+                <li><a href="#offerte" id="show-offerte">Offerte</a></li>
+                <li><a href="#pianifica">Pianifica</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="destinazioni">
+        <h2>Destinazioni Popolari</h2>
+        <ul>
+            <li>Parigi, Francia</li>
+            <li>Tokyo, Giappone</li>
+            <li>New York City, Stati Uniti</li>
+            <li>Coast To Coast, Stati Uniti</li>
+        </ul>
+    </section>
+    <section id="offerte" style="display:none;">
+        <h2>Offerte Speciali</h2>
+        <div id="offerte-list">
+            <!-- Offerte saranno aggiunte qui tramite JavaScript -->
         </div>
-        <div class="main-image" style="background-image: url('');">
-            <h1 style="text-align: center;">Benvenuti a bordo di un viaggio epico attraverso alcune delle città più iconiche del Nord America</h1>
-        </div>
-        <div class="overlay">
-            <div class="modal">
-                <h2>Scopri di più</h2>
-                <p>**New York:**<br>
-                Esplora le strade animate di Manhattan, dove ogni angolo nasconde una storia da raccontare. Ammira l'architettura epica dell'Empire State Building, passeggia per i sentieri di Central Park e immergiti nell'arte al Metropolitan Museum of Art. Per un assaggio della vita notturna, dirigiti verso i quartieri di Greenwich Village o Brooklyn, dove la musica e la creatività riempiono l'aria.<br><br>
+    </section>
+    <section id="pianifica">
+        <h2>Pianifica il tuo viaggio</h2>
+        <form id="prenota-form">
+            <label for="dataPartenza">Data Partenza:</label>
+            <input type="date" id="dataPartenza" name="dataPartenza" required>
 
-                Da qui, attraverseremo il confine verso il Canada, facendo tappa a Toronto, la vivace metropoli multiculturale.<br><br>
+            <label for="dataArrivo">Data Arrivo:</label>
+            <input type="date" id="dataArrivo" name="dataArrivo" min="" required>
 
-                **Toronto:**<br>
-                Scopri la vibrante metropoli di Toronto, dove la modernità si fonde con la storia. Ammira la maestosa CN Tower, esplora i quartieri multietnici come Kensington Market e Little Italy, e perdi te stesso tra i capolavori artistici al Royal Ontario Museum. Assapora la cucina globale e fai una passeggiata lungo il lungomare di Harbourfront, dove pot</p>
-                <button class="btn" onclick="closeModal()">Chiudi</button>
-            </div>
-        </div>
-        <!-- Sezione "About" modificata -->
-        <div class="about" id="about">
-            <h2 style="text-align: center;">About</h2>
-            <p style="text-align: center;">New York:<br>
-            Esplora le strade animate di Manhattan, dove ogni angolo nasconde una storia da raccontare. Ammira l'architettura epica dell'Empire State Building, passeggia per i sentieri di Central Park e immergiti nell'arte al Metropolitan Museum of Art. Per un assaggio della vita notturna, dirigiti verso i quartieri di Greenwich Village o Brooklyn, dove la musica e la creatività riempiono l'aria.<br><br>
+            <input type="submit" value="Controlla Offerte">
+        </form>
+    </section>
+    <footer id="contatti">
+        <p>Hai domande o bisogno di assistenza? Contattaci al numero +123456789 o invia un'e-mail a <a href="mailto:supporto@viaggifacili.com">supporto@viaggifacili.com</a>.</p>
+    </footer>
 
-            Da qui, attraverseremo il confine verso il Canada, facendo tappa a Toronto, la vivace metropoli multiculturale.<br><br>
-
-            Toronto:<br>
-            Scopri la vibrante metropoli di Toronto, dove la modernità si fonde con la storia. Ammira la maestosa CN Tower, esplora i quartieri multietnici come Kensington Market e Little Italy, e perdi te stesso tra i capolavori artistici al Royal Ontario Museum. Assapora la cucina globale e fai una passeggiata lungo il lungomare di Harbourfront, dove potrai goderti una vista spettacolare sul lago Ontario.<br><br>
-
-            Proseguendo il nostro viaggio, faremo tappa nella maestosa capitale del Canada, Ottawa.<br><br>
-
-            Ottawa:<br>
-            Immergiti nella bellezza architettonica di Ottawa, con il suo impressionante Parlamento e i suoi magnifici giardini. Esplora le collezioni di arte e storia al National Gallery of Canada, passeggiando lungo il canale Rideau o ammirando la vista panoramica dalla collina del Parlamento. Con la sua atmosfera elegante e il mix di cultura francese e inglese, Ottawa cattura il cuore di chiunque la visiti.<br><br>
-
-            Successivamente, faremo tappa a Edmonton, una città in crescita nel cuore dell'Alberta.<br><br>
-
-            Edmonton:<br>
-            Esplora la vivace scena culturale di Edmonton, dalle sue gallerie d'arte ai suoi teatri. Ammira la bellezza naturale del fiume North Saskatchewan mentre ti immergi nella tranquillità di uno dei suoi parchi cittadini. Con una scena culinaria in crescita e una comunità artistica vibrante, Edmonton è pronta a stupirti con la sua accoglienza calorosa e la sua atmosfera dinamica.<br><br>
-
-            Da Edmonton, continueremo il nostro viaggio attraverso Los Angeles, San Francisco, Portland e Seattle, scoprendo la bellezza, la diversità e l'energia unica di ognuna di queste città.<br><br>
-             Siete pronti per questa avventura?</p>
-        </div>
-        <div class="contact-form" id="bookingForm">
-            <span class="close-button" onclick="toggleBooking()">X</span> <!-- Aggiunto il pulsante "X" per chiudere il modulo -->
-            <h2 style="text-align: center;">Prenota</h2>
-            <form onsubmit="submitBooking(); return false;">
-                <input type="text" name="name" placeholder="Nome" required><br>
-                <input type="email" name="email" placeholder="Email" required><br>
-                <input type="text" name="phone" placeholder="Telefono" required><br>
-                <textarea name="message" placeholder="Messaggio" ></textarea><br>
-                <input type="submit" value="Invia">
-                <input type="reset" value="Annulla">
-            </form>
-        </div>
-    </div>
-
-    <!-- Lightbox per le immagini della galleria -->
-    <div id="lightbox" class="overlay" onclick="closeLightbox()">
-        <div class="modal">
-            <img src="" alt="" class="lightbox-img" style="max-width: 100%;">
-            <p class="lightbox-caption" style="text-align: center;"></p>
-        </div>
-    </div>
-
-    <script>
-        // Funzione per mostrare/nascondere la sezione "About"
-        function toggleAbout() {
-            var about = document.getElementById('about');
-            about.classList.toggle('show');
-        }
-
-        // Funzione per mostrare/nascondere il modulo di prenotazione
-        function toggleBooking() {
-            var bookingForm = document.getElementById('bookingForm');
-            bookingForm.classList.toggle('show');
-        }
-
-        // Funzione per scrollare verso il basso quando si fa clic su un pulsante
-        function scrollDown() {
-            window.scrollTo(0, document.body.scrollHeight);
-        }
-
-        // Funzione per inviare il modulo di prenotazione
-        function submitBooking() {
-            var form = document.querySelector('.contact-form form');
-            // Esegui la validazione del modulo
-            if (form.checkValidity()) {
-                // Se il modulo è valido, mostra un messaggio di conferma e reindirizza
-                alert("Modulo inviato con successo!");
-                form.reset(); // Resetta il modulo
-                toggleBooking(); // Chiudi il modulo di prenotazione
-                window.location.href = 'https://docs.google.com/spreadsheets/d/1kAHN5afQ1BGnDc_m6vIo-2mgKH5aCsWivJunajaSRKs/edit?usp=sharing'; // Reindirizza l'utente
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
